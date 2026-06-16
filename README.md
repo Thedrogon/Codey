@@ -1,4 +1,4 @@
-# Codey 🚀
+# Codey 
 
 Codey is an unbloated Git client built to streamline development workflows. Written entirely in Kotlin, it eliminates the verbosity of Git and GitHub CLI (`gh`) commands through concurrent state gathering and an intelligent execution pipeline.
 
