@@ -1,0 +1,8 @@
+# Build artifacts (The heavy, compiled output)
+/build/
+/.gradle/
+
+# IDE specific files (Your local editor settings shouldn't affect other devs)
+.idea/
+*.iml
+.kotlin/
