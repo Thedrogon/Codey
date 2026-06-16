@@ -1,5 +1,9 @@
+import com.sun.tools.javac.comp.Todo
 import kotlinx.coroutines.*
 import java.io.File
+
+const val BLUE = "\u001b[1;33m"
+const val RESET = "\u001b[0m"
 
 suspend fun gatherState(): RepoContext = coroutineScope {
     val isRepo = async(Dispatchers.IO) { "git rev-parse --is-inside-work-tree".runCommand().isSuccess }
@@ -16,6 +20,10 @@ fun main(args: Array<String>) = runBlocking {
     when (command) {
         "upgrade" -> upgradeCodey()
         "push" -> executePushPipeline()
+        "commit" -> TODO() //TODO
+        "uncommit" -> TODO() //TODO
+        "--version", "-v"-> versioning()
+        
         else -> logError("Unknown command: $command. Use 'push' or 'upgrade'.")
     }
 }
@@ -30,6 +38,14 @@ fun upgradeCodey() {
     }.onFailure {
         logError("Build failed: ${it.message}")
     }
+}
+
+fun versioning() {
+    println()
+    println("${BLUE}CODEY!${RESET}")
+    println("script: 0.0.1+Beta")
+    println("native: 0.0.1+Beta (linux x86_64)")
+    println()
 }
 
 suspend fun executePushPipeline() {
