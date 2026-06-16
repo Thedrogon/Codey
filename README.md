@@ -1,27 +1,12 @@
-codey/
-├── build.gradle.kts       # Build configuration and dependencies
-├── settings.gradle.kts    # Project name setup
-└── src/
-    └── main/
-        └── kotlin/
-            ├── Main.kt      # The entry point and pipeline orchestrator
-            ├── System.kt    # Shell execution extensions and clean logging
-            ├── State.kt     # The RepoContext data class
-            └── Steps.kt     # The Step interfaces and implementations
-
 # Codey 🚀
 
-> "Performance and Efficiency is the key to a successful software project."
+Codey is an unbloated Git client built to streamline development workflows. Written entirely in Kotlin, it eliminates the verbosity of Git and GitHub CLI (`gh`) commands through concurrent state gathering and an intelligent execution pipeline.
 
-Codey is a blazing-fast, unbloated Git automation CLI built to streamline development workflows. Written entirely in Kotlin, it eliminates the verbosity of standard Git and GitHub CLI (`gh`) commands through concurrent state gathering and an intelligent execution pipeline.
-
-Designed natively on and for Fedora KDE, Codey operates as a standalone JVM binary optimized for rapid iteration.
+Designed natively on and for Linux, it operates as a standalone JVM binary optimized for rapid iteration.
 
 ---
 
 ## 🏗️ System Architecture
-
-Codey abandons the traditional "nested if-else" scripting approach in favor of a robust, state-of-the-art software engineering architecture:
 
 ### 1. The Immutable State Machine (`State.kt`)
 At the core of the tool is the `RepoContext` data class. Instead of querying the system repeatedly, Codey takes a single, immutable snapshot of the repository's current state (e.g., `isGitRepo`, `hasUncommitted`, `hasOriginRemote`).
